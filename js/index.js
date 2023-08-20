@@ -44,3 +44,20 @@ window.onscroll = () => {
     footer.classList.toggle('show-animate',this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
 
 }
+jQuery('#contactform').on('submit',function(e){
+    e.preventDefault();
+    jQuery.ajax({
+        url:'https://script.google.com/macros/s/AKfycbx_nlZHL-JyUaMqw0EOJZLt0r7UwJaB70OrZkgzj9Wlpm1SK5ZquinX0N21j1HatNL5/exec',
+        type:'post',
+        data:jQuery('#contactform').serialize(),
+        success:function(result){
+            alert("Thank You !!");
+            jQuery('#full_name').val('');
+            jQuery('#email').val('');
+            jQuery('#mobile_no').val('');
+            jQuery('#subject').val('');
+            jQuery('#message').val('');
+
+        }
+    });
+});
